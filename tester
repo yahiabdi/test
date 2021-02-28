@@ -1,0 +1,33 @@
+GET /assignment1/_search?size=1000&q=*:*
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+
+
+#This POST method uses 
+POST /assignment1/_analyze
+{
+
+"tokenizer":"standard",
+  "filter": [ "stemmer" ],
+
+   "text": 
+           "A bartender is working at a saloon, serving drinks to customers. After he fills a stereotypically Irish man's bucket with beer, Carrie Nation and her followers burst inside. ."
+
+        
+
+}
+
+#This POST method alters the text below to get rid of stopwords ones which are identified here https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-stop-tokenfilter.html
+POST /assignment1/_analyze
+{
+
+"tokenizer":"standard",
+  "filter": [ "stop" ],
+
+   "text": 
+           "A bartender is working at a saloon, serving drinks to customers. After he fills a stereotypically Irish man's bucket with beer, Carrie Nation and her followers burst inside. "
+}
